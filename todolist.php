@@ -21,7 +21,7 @@ define('TODOLIST_INITFILE_ERR', -2);
 define('TODOLIST_SAVE_ERR', -3);
 define('TODOLIST_GET_ERR', -4);
 
-// == Load the language file (en_US by default ==
+// == Load the language file (en_US by default) ==
 i18n_merge(TODOLIST_ID) || i18n_merge(TODOLIST_ID, 'en_US');
 
 // == Register plugin ==
@@ -112,8 +112,6 @@ function todolist_save($todos = array(), $init = false) {
 
     if ($data === TODOLIST_GET_ERR) {
       return TODOLIST_GET_ERR;
-    } else {
-      $data = (array) $data;
     }
   }
 

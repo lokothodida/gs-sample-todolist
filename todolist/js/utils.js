@@ -1,6 +1,5 @@
-/* global $ */
 // Some useful utility methods
-define(["config"], function(config) {
+define(["jquery", "config"], function($, config) {
   // Get a named <template>
   function template(name) {
     return document.querySelector("template[name='" + name + "']");

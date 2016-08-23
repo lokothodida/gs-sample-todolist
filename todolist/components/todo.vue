@@ -37,8 +37,11 @@
 </template>
 
 <script>
-/* global Vue */
-define("components/todo", ["config", "utils"], function(config, utils) {
+define("components/todo", [
+  "vue",
+  "config",
+  "utils"
+], function(Vue, config, utils) {
   // Export the component
   return Vue.extend({
     template: utils.template("todo"),

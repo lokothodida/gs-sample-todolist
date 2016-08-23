@@ -15,8 +15,11 @@
 </template>
 
 <script>
-/* global Vue */
-define("components/status", ["config", "utils"], function(config, utils) {
+define("components/status", [
+  "vue",
+  "config",
+  "utils",
+], function(Vue, config, utils) {
   // Export the component
   return Vue.extend({
     template: utils.template("status"),

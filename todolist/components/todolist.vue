@@ -1,5 +1,5 @@
-<!--app component-->
-<template name="app">
+<!--todolist main component-->
+<template name="todolist">
   <!-- status update message -->
   <status :type="status.type" :show="status.show">{{ status.message }}</status>
 
@@ -15,6 +15,7 @@
   <!--list the (active) todos-->
   <ul class="todos">
     <li v-for="item in todos | active">
+      <!--.sync is used to allow 2-way binding between parent and child nodes-->
       <todo :todo.sync="item"></todo>
     </li>
   </ul>
@@ -33,22 +34,22 @@
 </template>
 
 <script>
-/* global Vue */
-define("components/app", [
+define("components/todolist", [
+  "vue",
   "config",
   "utils",
   "components/status",
   "components/todo",
 ],
-function(config, utils, status, todo) {
-  // Register a filter for vue so we can list only the todos NOT marked as deleted
+function(Vue, config, utils, status, todo) {
+  // Register a filter for Vue so we can list only the todos NOT marked as deleted
   Vue.filter("active", function(todos) {
     return todos.filter(utils.filter.active);
   });
 
   // Export the component
   return Vue.extend({
-    template: utils.template("app"),
+    template: utils.template("todolist"),
 
     data: function() {
       return {
